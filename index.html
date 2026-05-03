@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XG360 VIP Platform</title>
+<title>XG360 Betting App</title>
 
 <style>
 body {
@@ -13,51 +13,62 @@ body {
   color: white;
 }
 
+/* HEADER */
 header {
-  background: #000;
+  background: #111;
   padding: 15px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid #22c55e;
+  align-items: center;
+  color: white;
+}
+.logo {
+  color: #22c55e;
+  font-weight: bold;
 }
 
-header h1 {
-  color: #22c55e;
+/* BALANCE */
+.balance {
+  background: #111827;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 10px;
+}
+.balance h2 {
   margin: 0;
 }
 
+/* MATCHES */
 .container {
-  padding: 20px;
+  padding: 15px;
 }
-
 .card {
   background: #111827;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
-
 .odds {
   display: flex;
   justify-content: space-between;
 }
-
 .odd {
   background: #1f2937;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 6px;
   width: 30%;
   text-align: center;
 }
 
-input {
-  width: 100%;
-  padding: 15px;
+/* VIP BOX */
+.vip {
+  background: #111827;
+  padding: 20px;
   border-radius: 10px;
-  border: none;
-  margin-top: 20px;
+  text-align: center;
 }
 
+/* BUTTON */
 button {
   width: 100%;
   padding: 15px;
@@ -65,16 +76,31 @@ button {
   border: none;
   border-radius: 10px;
   color: white;
-  font-weight: bold;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
-.vip {
-  background: #111827;
-  padding: 20px;
-  border-radius: 12px;
+/* INPUT */
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+}
+
+/* NAV BAR */
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+nav div {
   text-align: center;
-  margin-top: 20px;
+  font-size: 12px;
 }
 </style>
 </head>
@@ -82,9 +108,14 @@ button {
 <body>
 
 <header>
-  <h1>XG360</h1>
-  <span>VIP Tips Platform</span>
+  <div class="logo">XG360</div>
+  <div>GHS 0.00</div>
 </header>
+
+<div class="balance">
+  <h2>Balance: GHS 0.00</h2>
+  <small>VIP tips unlock after payment</small>
+</div>
 
 <div class="container">
 
@@ -107,15 +138,20 @@ button {
   </div>
 
   <input type="email" id="email" placeholder="Enter your email">
-
-  <button onclick="payNow()">PAY & UNLOCK VIP</button>
+  <button onclick="payNow()">DEPOSIT & UNLOCK VIP</button>
 
   <div class="vip" id="vipBox">
     🔒 VIP FIXED GAME<br><br>
-    Unlock to see today's winning tips
+    Locked - Deposit to unlock
   </div>
 
 </div>
+
+<nav>
+  <div>🏠<br>Home</div>
+  <div>📊<br>Bets</div>
+  <div>👤<br>Profile</div>
+</nav>
 
 <script>
 function payNow() {
@@ -128,15 +164,27 @@ function payNow() {
 
   localStorage.setItem("vipUser", "true");
   localStorage.setItem("userEmail", email);
+  localStorage.setItem("balance", "5000");
 
-  window.location.href = "https://paystack.shop/pay/YOUR-LINK-HERE";
-}
-
-// Auto unlock if user already paid
-if (localStorage.getItem("vipUser") === "true") {
   document.getElementById("vipBox").innerHTML =
     "🔥 VIP FIXED GAME<br><br>Arsenal WIN ✅<br>Man United WIN ✅";
+
+  document.querySelector(".balance h2").innerHTML = "Balance: GHS 5,000";
+
+  setTimeout(function() {
+    window.location.href = "https://paystack.shop/pay/YOUR-LINK";
+  }, 2000);
 }
+
+window.onload = function() {
+  if (localStorage.getItem("vipUser") === "true") {
+    document.getElementById("vipBox").innerHTML =
+      "🔥 VIP FIXED GAME<br><br>Arsenal WIN ✅<br>Man United WIN ✅";
+
+    document.querySelector(".balance h2").innerHTML =
+      "Balance: GHS " + localStorage.getItem("balance");
+  }
+};
 </script>
 
 </body>
