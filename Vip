@@ -1,1 +1,17 @@
 
+<script>
+function payNow() {
+  var email = document.getElementById("email").value;
+
+  if (email === "") {
+    alert("Enter your email first");
+    return;
+  }
+
+  // Save email (optional)
+  localStorage.setItem("vipUser", email);
+
+  // Redirect to Paystack
+  window.location.href = "https://paystack.shop/pay/6imdfbetb8";
+}
+</script>
