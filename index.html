@@ -1,1 +1,156 @@
-window.location.href = "vip.html";
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XG360 VIP Tips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #0b0f14;
+      color: white;
+    }
+
+    header {
+      background: #000;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #22c55e;
+    }
+
+    header h1 {
+      color: #22c55e;
+      margin: 0;
+    }
+
+    .container {
+      padding: 15px;
+    }
+
+    .card {
+      background: #111827;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+
+    .teams {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .odds {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .odd {
+      background: #1f2937;
+      padding: 10px;
+      border-radius: 8px;
+      width: 30%;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      background: #22c55e;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .vip {
+      margin-top: 20px;
+      background: #111827;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>XG360</h1>
+  <span>VIP Tips Platform</span>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <div class="teams">Arsenal vs Chelsea</div>
+    <div class="odds">
+      <div class="odd">1<br>2.10</div>
+      <div class="odd">X<br>3.20</div>
+      <div class="odd">2<br>3.00</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="teams">Man United vs Liverpool</div>
+    <div class="odds">
+      <div class="odd">1<br>2.50</div>
+      <div class="odd">X<br>3.10</div>
+      <div class="odd">2<br>2.80</div>
+    </div>
+  </div>
+
+  <input type="email" id="email" placeholder="Enter your email">
+
+  <button onclick="payWithPaystack()">PAY & UNLOCK VIP</button>
+
+  <div class="vip">
+    🔒 VIP FIXED GAME<br><br>
+    Unlock to see today's winning tips
+  </div>
+
+</div>
+
+<script>
+function payWithPaystack() {
+
+  var email = document.getElementById('email').value;
+
+  if(email === ""){
+    alert("Enter your email first");
+    return;
+  }
+
+  var handler = PaystackPop.setup({
+    key: 'YOUR_PUBLIC_KEY',
+    email: email,
+    amount: 5000 * 100,
+    currency: 'GHS',
+
+    callback: function(response){
+      alert('Payment successful!');
+      window.location.href = "vip.html";
+    },
+
+    onClose: function(){
+      alert('Payment cancelled');
+    }
+  });
+
+  handler.openIframe();
+}
+</script>
+
+</body>
+</html>
