@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>XG360 VIP Platform</title>
+  <title>XG360 Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -17,6 +17,7 @@
       padding: 15px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       border-bottom: 2px solid #22c55e;
     }
 
@@ -31,26 +32,31 @@
 
     .card {
       background: #111827;
-      padding: 20px;
-      border-radius: 15px;
+      padding: 15px;
+      border-radius: 10px;
       margin-bottom: 15px;
     }
 
     .match {
-      font-size: 18px;
-      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
     }
 
-    .odds {
-      color: #ccc;
+    .odd {
+      background: #1f2937;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      width: 30%;
     }
 
     input {
       width: 100%;
       padding: 12px;
+      margin-top: 15px;
       border-radius: 8px;
       border: none;
-      margin-top: 10px;
     }
 
     button {
@@ -58,19 +64,26 @@
       padding: 15px;
       margin-top: 10px;
       background: #22c55e;
-      border: none;
-      border-radius: 10px;
-      font-weight: bold;
       color: white;
-    }
-
-    .vip {
-      text-align: center;
-      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
     }
 
     .locked {
-      opacity: 0.7;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background: #111827;
+      border-radius: 10px;
+    }
+
+    .vip {
+      display: none;
+      background: #022c22;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -79,28 +92,42 @@
 
 <header>
   <h1>XG360</h1>
-  <div>VIP Platform</div>
+  <span>VIP Tips Platform</span>
 </header>
 
 <div class="container">
 
   <div class="card">
-    <div class="match">Arsenal vs Chelsea</div>
-    <div class="odds">1 - 2.10 | X - 3.20 | 2 - 3.00</div>
+    <h3>Arsenal vs Chelsea</h3>
+    <div class="match">
+      <div class="odd">1<br>2.10</div>
+      <div class="odd">X<br>3.20</div>
+      <div class="odd">2<br>3.00</div>
+    </div>
   </div>
 
   <div class="card">
-    <div class="match">Man United vs Liverpool</div>
-    <div class="odds">1 - 2.50 | X - 3.10 | 2 - 2.80</div>
+    <h3>Man United vs Liverpool</h3>
+    <div class="match">
+      <div class="odd">1<br>2.50</div>
+      <div class="odd">X<br>3.10</div>
+      <div class="odd">2<br>2.80</div>
+    </div>
   </div>
 
   <input type="email" id="email" placeholder="Enter your email">
 
   <button onclick="payNow()">PAY & UNLOCK VIP</button>
 
-  <div class="card vip locked" id="vipContent">
-    🔒 VIP FIXED GAME<br><br>
-    Unlock to see today's winning tips
+  <div class="locked">
+    🔒 VIP FIXED GAME  
+    <p>Unlock to see today's winning tips</p>
+  </div>
+
+  <div id="vipContent" class="vip">
+    <h2>🔥 VIP FIXED GAME</h2>
+    <p>Arsenal vs Chelsea → OVER 2.5 ✅</p>
+    <p>Man United vs Liverpool → BTTS YES ✅</p>
   </div>
 
 </div>
@@ -109,29 +136,14 @@
 function payNow() {
   var email = document.getElementById("email").value;
 
-  if (email === "") {
+  if(email === "") {
     alert("Enter your email first");
     return;
   }
 
-  localStorage.setItem("vipUser", email);
-
+  // Redirect to Paystack
   window.location.href = "https://paystack.shop/pay/6imdfbetb8";
 }
-
-window.onload = function() {
-  var user = localStorage.getItem("vipUser");
-
-  if (user) {
-    document.getElementById("vipContent").innerHTML = `
-      ✅ VIP UNLOCKED<br><br>
-
-      🔥 Arsenal vs Chelsea — OVER 2.5<br>
-      🔥 Man United vs Liverpool — BTTS
-    `;
-    document.getElementById("vipContent").classList.remove("locked");
-  }
-};
 </script>
 
 </body>
