@@ -1,3 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XG360 VIP Tips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f14;
+      color: white;
+    }
+
+    header {
+      background: #000;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #22c55e;
+    }
+
+    header h1 {
+      color: #22c55e;
+      margin: 0;
+    }
+
+    .container {
+      padding: 15px;
+    }
+
+    .card {
+      background: #111827;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #22c55e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .vip-lock {
+      background: #111827;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>XG360</h1>
+  <span>VIP Tips Platform</span>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h3>Arsenal vs Chelsea</h3>
+    <p>1 - 2.10 | X - 3.20 | 2 - 3.00</p>
+  </div>
+
+  <div class="card">
+    <h3>Man United vs Liverpool</h3>
+    <p>1 - 2.50 | X - 3.10 | 2 - 2.80</p>
+  </div>
+
+  <input type="email" id="email" placeholder="Enter your email">
+
+  <button onclick="payNow()">PAY & UNLOCK VIP</button>
+
+  <div class="vip-lock" id="vipContent">
+    🔒 VIP FIXED GAME <br><br>
+    Unlock to see today's winning tips
+  </div>
+
 </div>
 
 <script>
@@ -9,6 +105,7 @@ function payNow() {
     return;
   }
 
+  // Redirect to your Paystack payment link
   window.location.href = "https://paystack.shop/pay/6imdfbetb8";
 }
 </script>
