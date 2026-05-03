@@ -1,5 +1,17 @@
-<!DOCTYPE html>
-<html>
+<<script>
+if (localStorage.getItem("vipUser") !== "true") {
+  alert("Access denied! Pay first.");
+  window.location.href = "index.html";
+}
+</script>>
+<</div> <!-- your container -->
+
+<script>
+  // your function here
+</script>
+
+</body>
+</html>>
 <head>
   <title>XG360 Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -162,4 +174,19 @@ function payNow() {
   // Go to payment
   window.location.href = "https://paystack.shop/pay/6imdfbetb8";
 }
-</script>>
+</<script>
+function payNow() {
+  var email = document.getElementById("email").value;
+
+  if (email === "") {
+    alert("Enter your email first");
+    return;
+  }
+
+  // Save access
+  localStorage.setItem("vipUser", "true");
+
+  // Redirect to payment
+  window.location.href = "https://paystack.shop/your-link";
+}
+</script>>>
