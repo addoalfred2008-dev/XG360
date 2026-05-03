@@ -8,7 +8,7 @@ XG360 VIP TIPS
 👉 Get Today’s Games
 
 Contact:
-WhatsApp: 0541799703
+WhatsApp: key: 'https://paystack.shop/pay/6imdfbetb8
 Name: Alfred Addo
 
-Payment: ATN / PaySpark
+Payment: MTN/ paystack
