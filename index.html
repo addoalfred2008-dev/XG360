@@ -1,4 +1,19 @@
-<<script>
+<<<script>
+function payNow() {
+  var email = document.getElementById("email").value;
+
+  if (email === "") {
+    alert("Enter your email first");
+    return;
+  }
+
+  // Save email
+  localStorage.setItem("userEmail", email);
+
+  // Redirect to payment
+  window.location.href = "https://paystack.shop/pay/yourlink";
+}
+</script>>
 if (localStorage.getItem("vipUser") !== "true") {
   alert("Access denied! Pay first.");
   window.location.href = "index.html";
