@@ -13,45 +13,43 @@ body {
   color: white;
 }
 
-/* HEADER */
 header {
   background: #111;
   padding: 15px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  color: white;
+  border-bottom: 2px solid #22c55e;
 }
+
 .logo {
   color: #22c55e;
   font-weight: bold;
 }
 
-/* BALANCE */
-.balance {
-  background: #111827;
-  margin: 15px;
-  padding: 15px;
-  border-radius: 10px;
-}
-.balance h2 {
-  margin: 0;
-}
-
-/* MATCHES */
 .container {
   padding: 15px;
 }
+
+.balance {
+  background: #111827;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
 .card {
   background: #111827;
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 15px;
 }
+
 .odds {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
+
 .odd {
   background: #1f2937;
   padding: 10px;
@@ -60,15 +58,14 @@ header {
   text-align: center;
 }
 
-/* VIP BOX */
-.vip {
-  background: #111827;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
 }
 
-/* BUTTON */
 button {
   width: 100%;
   padding: 15px;
@@ -79,16 +76,14 @@ button {
   margin-top: 10px;
 }
 
-/* INPUT */
-input {
-  width: 100%;
-  padding: 12px;
+.vip {
+  background: #111827;
+  padding: 20px;
   border-radius: 10px;
-  border: none;
-  margin-top: 10px;
+  text-align: center;
+  margin-top: 15px;
 }
 
-/* NAV BAR */
 nav {
   position: fixed;
   bottom: 0;
@@ -96,11 +91,7 @@ nav {
   background: #111;
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
-}
-nav div {
-  text-align: center;
-  font-size: 12px;
+  padding: 10px;
 }
 </style>
 </head>
@@ -112,45 +103,46 @@ nav div {
   <div>GHS 0.00</div>
 </header>
 
-<div class="balance">
-  <h2>Balance: GHS 0.00</h2>
-  <small>VIP tips unlock after payment</small>
-</div>
-
 <div class="container">
 
-  <div class="card">
-    <h3>Arsenal vs Chelsea</h3>
-    <div class="odds">
-      <div class="odd">1<br>2.10</div>
-      <div class="odd">X<br>3.20</div>
-      <div class="odd">2<br>3.00</div>
-    </div>
-  </div>
+<div class="balance">
+  <h2>Balance: GHS 0.00</h2>
+  <p>VIP tips unlock after payment</p>
+</div>
 
-  <div class="card">
-    <h3>Man United vs Liverpool</h3>
-    <div class="odds">
-      <div class="odd">1<br>2.50</div>
-      <div class="odd">X<br>3.10</div>
-      <div class="odd">2<br>2.80</div>
-    </div>
+<div class="card">
+  <h3>Arsenal vs Chelsea</h3>
+  <div class="odds">
+    <div class="odd">1<br>2.10</div>
+    <div class="odd">X<br>3.20</div>
+    <div class="odd">2<br>3.00</div>
   </div>
+</div>
 
-  <input type="email" id="email" placeholder="Enter your email">
-  <button onclick="payNow()">DEPOSIT & UNLOCK VIP</button>
-
-  <div class="vip" id="vipBox">
-    🔒 VIP FIXED GAME<br><br>
-    Locked - Deposit to unlock
+<div class="card">
+  <h3>Man United vs Liverpool</h3>
+  <div class="odds">
+    <div class="odd">1<br>2.50</div>
+    <div class="odd">X<br>3.10</div>
+    <div class="odd">2<br>2.80</div>
   </div>
+</div>
+
+<input type="email" id="email" placeholder="Enter your email">
+
+<button onclick="payNow()">DEPOSIT & UNLOCK VIP</button>
+
+<div class="vip" id="vipBox">
+🔒 VIP FIXED GAME  
+<br><br>Locked - Deposit to unlock
+</div>
 
 </div>
 
 <nav>
-  <div>🏠<br>Home</div>
-  <div>📊<br>Bets</div>
-  <div>👤<br>Profile</div>
+<div>🏠 Home</div>
+<div>📊 Bets</div>
+<div>👤 Profile</div>
 </nav>
 
 <script>
@@ -163,63 +155,24 @@ function payNow() {
   }
 
   localStorage.setItem("vipUser", "true");
-  localStorage.setItem("userEmail", email);
   localStorage.setItem("balance", "5000");
 
-  document.getElementById("vipBox").innerHTML =
-    "🔥 VIP FIXED GAME<br><br>Arsenal WIN ✅<br>Man United WIN ✅";
+  alert("Redirecting to payment...");
 
-  document.querySelector(".balance h2").innerHTML = "Balance: GHS 5,000";
-
-  setTimeout(function() {
-    window.location.href = "https://paystack.shop/pay/YOUR-LINK";
-  }, 2000);
+  setTimeout(function () {
+    window.location.href = "https://paystack.shop/pay/6imdfbetb8";
+  }, 1500);
 }
 
-window.onload = function() {
+window.onload = function () {
   if (localStorage.getItem("vipUser") === "true") {
-    document.getElementById("vipBox").innerHTML =
-      "🔥 VIP FIXED GAME<br><br>Arsenal WIN ✅<br>Man United WIN ✅";
-
-    document.querySelector(".balance h2").innerHTML =
-      "Balance: GHS " + localStorage.getItem("balance");
-  }
-};
-</script><script>
-function payNow() {
-  var email = document.getElementById("email").value;
-
-  if(email === "") {
-    alert("Enter your email first");
-    return;
-  }
-
-  // Save user email
-  localStorage.setItem("userEmail", email);
-
-  // Redirect to payment
-  window.location.href = "https://paystack.shop/pay/6imdfbetb8";
-}
-
-// When page loads
-window.onload = function() {
-
-  // Check if user already unlocked
-  if(localStorage.getItem("vipUser") === "true") {
-
     document.getElementById("vipBox").innerHTML =
       "🔥 VIP FIXED GAME<br><br>Arsenal WIN ✅";
 
-    document.querySelector(".balance h2").innerHTML =
+    document.querySelector(".balance h2").innerText =
       "Balance: GHS " + localStorage.getItem("balance");
   }
-}
-
-// SIMULATE PAYMENT SUCCESS (for now)
-function unlockVIP() {
-  localStorage.setItem("vipUser", "true");
-  localStorage.setItem("balance", "5000");
-}
+};
 </script>
 
 </body>
