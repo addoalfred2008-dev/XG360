@@ -1,50 +1,22 @@
-<<<script>
-function payNow() {
-  var email = document.getElementById("email").value;
-
-  if (email === "") {
-    alert("Enter your email first");
-    return;
-  }
-
-  // Save email
-  localStorage.setItem("userEmail", email);
-
-  // Redirect to payment
-  window.location.href = "https://paystack.shop/pay/yourlink";
-}
-</script>>
-if (localStorage.getItem("vipUser") !== "true") {
-  alert("Access denied! Pay first.");
-  window.location.href = "index.html";
-}
-</script>>
-<</div> <!-- your container -->
-
-<script>
-  // your function here
-</script>
-
-</body>
-</html>>
+<!DOCTYPE html>
+<html>
 <head>
-  <title>XG360 Platform</title>
+  <title>XG360 VIP Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       background: #0b0f14;
       color: white;
     }
 
     header {
-      background: #111;
+      background: #000;
       padding: 15px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       border-bottom: 2px solid #22c55e;
     }
 
@@ -54,63 +26,66 @@ if (localStorage.getItem("vipUser") !== "true") {
     }
 
     .container {
-      padding: 15px;
+      padding: 20px;
     }
 
     .card {
       background: #111827;
-      padding: 15px;
-      border-radius: 10px;
+      padding: 20px;
+      border-radius: 15px;
       margin-bottom: 15px;
     }
 
-    .match {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
+    .teams {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
 
-    .odd {
+    .odds {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .odd-box {
       background: #1f2937;
-      padding: 10px;
-      border-radius: 8px;
+      padding: 15px;
+      border-radius: 10px;
       text-align: center;
       width: 30%;
     }
 
     input {
       width: 100%;
-      padding: 12px;
-      margin-top: 15px;
-      border-radius: 8px;
+      padding: 15px;
+      border-radius: 10px;
       border: none;
+      margin-top: 15px;
+      font-size: 16px;
     }
 
     button {
       width: 100%;
       padding: 15px;
-      margin-top: 10px;
       background: #22c55e;
-      color: white;
       border: none;
-      border-radius: 8px;
-      font-weight: bold;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
     }
 
-    .locked {
+    .vip-box {
+      background: #111827;
+      padding: 20px;
+      border-radius: 15px;
       text-align: center;
       margin-top: 20px;
-      padding: 20px;
-      background: #111827;
-      border-radius: 10px;
     }
 
-    .vip {
-      display: none;
-      background: #022c22;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 10px;
+    .lock {
+      font-size: 25px;
     }
   </style>
 </head>
@@ -124,72 +99,42 @@ if (localStorage.getItem("vipUser") !== "true") {
 
 <div class="container">
 
+  <!-- MATCH 1 -->
   <div class="card">
-    <h3>Arsenal vs Chelsea</h3>
-    <div class="match">
-      <div class="odd">1<br>2.10</div>
-      <div class="odd">X<br>3.20</div>
-      <div class="odd">2<br>3.00</div>
+    <div class="teams">Arsenal vs Chelsea</div>
+    <div class="odds">
+      <div class="odd-box">1<br>2.10</div>
+      <div class="odd-box">X<br>3.20</div>
+      <div class="odd-box">2<br>3.00</div>
     </div>
   </div>
 
+  <!-- MATCH 2 -->
   <div class="card">
-    <h3>Man United vs Liverpool</h3>
-    <div class="match">
-      <div class="odd">1<br>2.50</div>
-      <div class="odd">X<br>3.10</div>
-      <div class="odd">2<br>2.80</div>
+    <div class="teams">Man United vs Liverpool</div>
+    <div class="odds">
+      <div class="odd-box">1<br>2.50</div>
+      <div class="odd-box">X<br>3.10</div>
+      <div class="odd-box">2<br>2.80</div>
     </div>
   </div>
 
+  <!-- EMAIL INPUT -->
   <input type="email" id="email" placeholder="Enter your email">
 
+  <!-- BUTTON -->
   <button onclick="payNow()">PAY & UNLOCK VIP</button>
 
-  <div class="locked">
-    🔒 VIP FIXED GAME  
+  <!-- LOCKED VIP -->
+  <div class="vip-box">
+    <div class="lock">🔒 VIP FIXED GAME</div>
     <p>Unlock to see today's winning tips</p>
-  </div>
-
-  <div id="vipContent" class="vip">
-    <h2>🔥 VIP FIXED GAME</h2>
-    <p>Arsenal vs Chelsea → OVER 2.5 ✅</p>
-    <p>Man United vs Liverpool → BTTS YES ✅</p>
   </div>
 
 </div>
 
+<!-- SCRIPT (VERY IMPORTANT: ONLY ONE SCRIPT LIKE THIS) -->
 <script>
-function payNow() {
-  var email = document.getElementById("email").value;
-
-  if(email === "") {
-    alert("Enter your email first");
-    return;
-  }
-
-  // Redirect to Paystack
-  window.location.href = "https://paystack.shop/pay/6imdfbetb8";
-}
-</script>
-
-</body>
-</<script>
-function payNow() {
-  var email = document.getElementById("email").value;
-
-  if(email alfredaadddo18@icloud"") {
-    alert("Enter your email first");
-    return;
-  }
-
-  // Save access (simple unlock system)
-  localStorage.setItem("vipUser", "true");
-
-  // Go to payment
-  window.location.href = "https://paystack.shop/pay/6imdfbetb8";
-}
-</<script>
 function payNow() {
   var email = document.getElementById("email").value;
 
@@ -198,10 +143,13 @@ function payNow() {
     return;
   }
 
-  // Save access
-  localStorage.setItem("vipUser", "true");
+  // Save email
+  localStorage.setItem("userEmail", email);
 
-  // Redirect to payment
-  window.location.href = "https://paystack.shop/your-link";
+  // Redirect to payment (CHANGE THIS LINK)
+  window.location.href = "https://paystack.shop/pay/yourlink";
 }
-</script>>>
+</script>
+
+</body>
+</html>
