@@ -185,6 +185,41 @@ window.onload = function() {
       "Balance: GHS " + localStorage.getItem("balance");
   }
 };
+</script><script>
+function payNow() {
+  var email = document.getElementById("email").value;
+
+  if(email === "") {
+    alert("Enter your email first");
+    return;
+  }
+
+  // Save user email
+  localStorage.setItem("userEmail", email);
+
+  // Redirect to payment
+  window.location.href = "https://paystack.shop/pay/6imdfbetb8";
+}
+
+// When page loads
+window.onload = function() {
+
+  // Check if user already unlocked
+  if(localStorage.getItem("vipUser") === "true") {
+
+    document.getElementById("vipBox").innerHTML =
+      "🔥 VIP FIXED GAME<br><br>Arsenal WIN ✅";
+
+    document.querySelector(".balance h2").innerHTML =
+      "Balance: GHS " + localStorage.getItem("balance");
+  }
+}
+
+// SIMULATE PAYMENT SUCCESS (for now)
+function unlockVIP() {
+  localStorage.setItem("vipUser", "true");
+  localStorage.setItem("balance", "5000");
+}
 </script>
 
 </body>
